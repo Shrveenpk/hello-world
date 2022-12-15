@@ -1,0 +1,9 @@
+---
+- hosts: tomcat
+  become: true
+  tasks:
+    - name: copy file to tomcat server
+      copy:
+        src: /opt/playbooks/webapp/target/webapp.war
+        dest: /opt/apache-tomcat-8.5.84/webapps   
+
