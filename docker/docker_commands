@@ -1,4 +1,16 @@
+#docker build
 docker stop praveen_demo; 
 docker rm -f praveen_demo; docker image rm -f praveen_demo; cd /opt/docker; docker build . -t praveen_demo
-
+#docker run
 docker run -dit --name praveen_demo -p 8080:8080 praveen_demo
+
+#docker version control
+cd /opt/docker
+docker build . -t $JOB_NAME:v1.$BUILD_ID 
+docker tag $JOB_NAME:v1.$BUILD_ID praveenkumarbalaji02/$JOB_NAME:v1.$BUILD_ID
+docker tag $JOB_NAME:v1.$BUILD_ID praveenkumarbalaji02/$JOB_NAME:latest
+docker push praveenkumarbalaji02/$JOB_NAME:v1.$BUILD_ID
+docker push praveenkumarbalaji02/$JOB_NAME:latest
+docker rmi -f praveenkumarbalaji02/$JOB_NAME:v1.$BUILD_ID
+docker rmi -f $JOB_NAME:v1.$BUILD_ID
+docker rmi -f praveenkumarbalaji02/$JOB_NAME:latest
