@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: true
+  tasks:
+    - name: stop cointainer
+      shell: docker stop praveen
+    - name: remove cointainer
+      shell: docker rm -f praveen
+    - name: remove image
+      shell: docker image rm -f praveenkumarbalaji02/praveen_demo
+    - name: create a new cointainer
+      shell: docker run -dit --name praveen -p 8080:8080 praveenkumarbalaji02/praveen_demo
