@@ -1,0 +1,4 @@
+docker stop praveen_demo; 
+docker rm -f praveen_demo; docker image rm -f praveen_demo; cd /opt/docker; docker build . -t praveen_demo
+
+docker run -dit --name praveen_demo -p 8080:8080 praveen_demo
