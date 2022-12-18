@@ -1,0 +1,13 @@
+---
+- hosts: local
+  become: true
+  tasks:
+    - name: stop container
+      shell: docker stop praveen
+    - name: delete container
+      shell: docker rm -f praveen
+    - name: delete image
+      shell: docker image rm -f praveenkumarbalaji02/hello-world-maven
+
+    - name: create a new cointainer
+      shell: docker run -dit --name praveen -p 8080:8080 praveenkumarbalaji02/hello-world-maven:latest
