@@ -1,0 +1,10 @@
+---
+- hosts: local
+  become: true
+  tasks:
+    - name: remove images
+      shell: docker rmi praveenkumarbalaji02/demo_project:latest
+
+    - name: remove images
+      shell: docker rmi demo_project
+

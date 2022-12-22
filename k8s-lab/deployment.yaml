@@ -1,0 +1,12 @@
+---
+- hosts: kops
+  become: true
+  user: root
+  tasks:
+  - name: delete deployment
+    command: kubectl delete deployment praveen
+  - name: create deployment
+    command: kubectl apply -f deployment.yaml
+    args:
+     chdir: /opt
+

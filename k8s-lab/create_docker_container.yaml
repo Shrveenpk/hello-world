@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: true
+  tasks:
+    - name: create docker image
+      shell: docker build . -t demo_project:latest
+      args:
+       chdir: /opt/k8s-lab
+
+    - name: tag docker image
+      shell: docker tag demo_project praveenkumarbalaji02/demo_project
+

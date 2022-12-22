@@ -1,0 +1,9 @@
+---
+- hosts: kops
+  become: true
+  user: root
+  tasks:
+  - name: create service
+    command: kubectl apply -f service.yaml
+    args:
+     chdir: /opt
