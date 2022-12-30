@@ -24,7 +24,7 @@ pipeline{
     stage (' Sonar Quality Check') {
       steps{
        withSonarQubeEnv('sonarqube') {
-        sh ' mvn clean package sonar:sonar'
+        sh 'mvn sonar:sonar'
         } 
       }
     }
