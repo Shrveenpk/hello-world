@@ -21,12 +21,5 @@ pipeline{
        sh 'mvn clean install package' 
       }
     }
-     stage (' Sonar Code Analyis') {
-      steps{
-        withSonarQubeEnv(credentialsId: 'cc4d1c9c-23fd-4667-8219-e4d3ca7e17e8') {
-         sh ' mvn clean package sonar:sonar'
-        } 
-      }
-    }
   }
 }
