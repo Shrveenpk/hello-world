@@ -23,7 +23,7 @@ pipeline{
     }
     stage (' Sonar Quality Check') {
       steps{
-       withSonarQubeEnv(credentialsId: 'sonarqube') {
+       withSonarQubeEnv('sonarqube') {
         sh ' mvn clean package sonar:sonar'
         } 
       }
